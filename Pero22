@@ -1,0 +1,48 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class SimpleGUI {
+
+    // First frame with text and a title
+    public static void createFirstFrame() {
+        JFrame frame = new JFrame("Frame Pertama");
+        frame.setSize(300, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JLabel label = new JLabel("Hello... Salam kenal dari Frame", SwingConstants.CENTER);
+        label.setFont(new Font("Monospaced", Font.BOLD, 16));
+
+        frame.add(label);
+        frame.setLocationRelativeTo(null); // Center the frame
+        frame.setVisible(true);
+    }
+
+    // Second frame with a custom label
+    public static void createLabelFrame() {
+        JFrame frame = new JFrame("Membuat Label");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JLabel label = new JLabel("Pemrograman Berorientasi Objek", SwingConstants.CENTER);
+        label.setFont(new Font("Arial", Font.PLAIN, 18));
+
+        frame.add(label);
+        frame.setSize(300, 150);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        // Create the first frame
+        SwingUtilities.invokeLater(SimpleGUI::createFirstFrame);
+
+        // Delay the second frame for better visibility
+        SwingUtilities.invokeLater(() -> {
+            try {
+                Thread.sleep(2000); // 2-second delay
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            createLabelFrame();
+        });
+    }
+}
