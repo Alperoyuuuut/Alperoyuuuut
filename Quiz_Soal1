@@ -1,0 +1,65 @@
+
+import javax.swing.*;
+
+import java.awt.event.ActionEvent;
+
+import java.awt.event.ActionListener;
+
+
+
+public class KlikSayaApp {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("Aplikasi Klik Saya");
+
+        JButton button = new JButton("Klik Saya");
+
+        JLabel label = new JLabel("");
+
+
+
+        // Menambahkan ActionListener ke tombol
+
+        button.addActionListener(new ActionListener() {
+
+            @Override
+
+            public void actionPerformed(ActionEvent e) {
+
+                label.setText("Tombol telah diklik!");
+
+            }
+
+        });
+
+
+
+        // Menyusun layout
+
+        frame.setLayout(null);
+
+        button.setBounds(100, 50, 150, 30);
+
+        label.setBounds(100, 100, 200, 30);
+
+
+
+        frame.add(button);
+
+        frame.add(label);
+
+
+
+        // Konfigurasi frame
+
+        frame.setSize(400, 300);
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        frame.setVisible(true);
+
+    }
+
+}
+
